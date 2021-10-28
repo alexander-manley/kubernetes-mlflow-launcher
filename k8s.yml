@@ -1,0 +1,42 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-datascience-launcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernetes-datascience-launcher
+  template:
+    metadata:
+      labels:
+        app: kubernetes-datascience-launcher
+    spec:
+      containers:
+      - image: kelvinsp/mlflow
+        name: mlflow
+#        command: ["/bin/bash", "-c"]
+#        args:
+#         - /usr/bin/python3 ;
+
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-datascience-launcher
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP  
+  ports:
+  - name: "kubernetes-datascience-launcher"
+    port: 5000
+#    port: 41338
+#    port: 41339
+  selector:
+    app: kubernetes-datascience-launcher
+
