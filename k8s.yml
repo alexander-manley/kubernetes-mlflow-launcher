@@ -14,7 +14,7 @@ spec:
         app: kubernetes-datascience-launcher
     spec:
       containers:
-      - image: kelvinsp/mlflow
+      - image: cleareyeai/mlflow
         name: mlflow
 #        command: ["/bin/bash", "-c"]
 #        args:
