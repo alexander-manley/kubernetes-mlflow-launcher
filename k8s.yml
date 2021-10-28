@@ -14,7 +14,7 @@ spec:
         app: kubernetes-datascience-launcher
     spec:
       containers:
-      - image: cleareyeai/mlflow:1.20.1
+      - image: skunkengineering/data-science-mlflow-server
         name: mlflow
 #        command: ["/bin/bash", "-c"]
 #        args:
